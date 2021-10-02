@@ -196,7 +196,7 @@
 
                 <hr>
 
-                <p>By clicking "Submit" you are agree with privacy policy for application of educational assistance of Provincial Government of Aurora.</p>
+                <p>By clicking "Submit" you are agree with <a target="_blank" href="{{ route('pripol') }}">privacy policy</a> for application of educational assistance of Provincial Government of Aurora.</p>
 
                 <button class="btn btn-primary text-right">Submit</button>
             </form>
