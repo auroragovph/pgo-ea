@@ -8,7 +8,10 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta name="robots" content="index,follow">
 
-	<title>PGA - Educational Assistance</title>
+	<title>Educational Assistance</title>
+
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon" />
+
 
 	
 

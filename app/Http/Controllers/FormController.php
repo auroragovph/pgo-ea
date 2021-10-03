@@ -90,9 +90,15 @@ class FormController extends Controller
             'other'    => $other,
         ]);
 
+        if(auth()->check()){
+            $intended = route('apply.form');
+        }else{
+            $intended = route('homepage');
+        }
+
         return response()->json([
             'message'  => "Your application has been recorded. Your tracking number is: " . generate_tracking_number($applicant->id),
-            'intended' => route('homepage'),
+            'intended' => $intended,
         ], 200);
     }
 }

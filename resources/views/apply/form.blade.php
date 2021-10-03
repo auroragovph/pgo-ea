@@ -132,16 +132,16 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <x-ui.form.input label="Number of Family Member" name="family_number" required />
+                        <x-ui.form.input label="Number of Family Member" type="number" name="family_number" required />
                     </div>
                     <div class="col-md-6">
-                        <x-ui.form.input label="Family Monthly Income" name="family_income" required />
+                        <x-ui.form.input label="Family Monthly Income" type="number" name="family_income" required />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <x-ui.form.input label="Anu-ano ang mga pag-aari ng iyong pamilya?" placeholder="eg. bukid, bangka, tricycle, atbp." name="family_assets" required />
+                        <x-ui.form.input  placeholder="eg. bukid, bangka, tricycle, atbp." name="family_assets" required />
                         <x-ui.form.input label="Naninirahan ka ba kasama ang iyong mga magulang?"  name="family_living" required />
                         <x-ui.form.input label="Kung may mga kapatid na nag-aaral pa, ilan at anong grade/year level na nila?"  name="family_sibling" required />
                         <x-ui.form.input label="Kung mayroong mga kapatid na nagsusustento sa inyong pamilya, ano ang kanilang trabaho at magkano ang kanilang buwanang kita?"  name="family_sponsor" required />

@@ -16,7 +16,7 @@ class CreateScholarsTable extends Migration
         Schema::create('scholars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('applicant_id')->nullable()->constrained('applicants')->onDelete('set null');
-            $table->text('particulars')->default('Educational Assistance');
+            $table->string('particulars')->default('Educational Assistance');
             $table->json('period');
             $table->string('amount');
             $table->integer('status');

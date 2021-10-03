@@ -2,35 +2,38 @@
 
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\TrackingController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => '/'], function(){
 
-
     Route::view('/', 'welcome')->name('homepage');
     Route::view('/privacy-policy', 'privacy-policy')->name('pripol');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::group(['prefix' => 'apply', 'as' => 'apply.'], function(){
+        Route::get('/', [FormController::class, 'index'])->name('form');
+        Route::post('/', [FormController::class, 'submit'])->name('submit');
+    
+    });
 
-
-Route::group(['prefix' => 'apply', 'as' => 'apply.'], function(){
-    Route::get('/', [FormController::class, 'index'])->name('form');
-    Route::post('/', [FormController::class, 'submit'])->name('submit');
+    Route::get('track', TrackingController::class)->name('track');
 
 });
 
 
-Route::group(['prefix' => 'applicants', 'as' => 'applicant.'], function(){
-    Route::get('/', [ApplicantsController::class, 'index'])->name('index');
-    Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
-    Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
+// Protected routes
+Route::group(['middleware' => 'auth:web'], function(){
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
-
+    Route::group(['prefix' => 'applicants', 'as' => 'applicant.', 'middleware' => 'auth:web'], function(){
+        Route::get('/', [ApplicantsController::class, 'index'])->name('index');
+        Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
+        Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
+    });
 });
+
+
 
 
 

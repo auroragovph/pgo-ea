@@ -64,7 +64,7 @@ class ApplicantsController extends Controller
 
         return response()->json([
             'message'  => "Remark has been added.",
-            'intended' => route('applicant.index')
+            'intended' => route('applicant.show', $id)
         ], 200);
     }
 

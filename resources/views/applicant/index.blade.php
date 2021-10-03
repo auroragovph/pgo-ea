@@ -2,6 +2,11 @@
 
 @section('page-title', 'Applicants')
 
+
+@section('page-action')
+    <a target="_blank" href="{{ route('apply.form') }}" class="btn btn-primary">New Applicant</a>    
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
