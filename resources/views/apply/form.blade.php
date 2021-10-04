@@ -12,6 +12,9 @@
 <div class="row">
     <div class="col-md-8">
         <x-ui.card title="Application Form" class_header="bg-green">
+
+            <p><strong>*Kumpletuhin ang lahat ng mga hinihinging impormasyon sa ibaba. Ilagay ang "N/A" kung not applicable.</strong></p>
+
             <form action="{{ route('apply.submit') }}" method="POST" id="ajax_form">
                 @csrf
                 <div class="hr-text">Personal Information</div>
@@ -203,7 +206,20 @@
         </x-ui.card>
     </div>
     <div class="col-md-4">
-        <x-ui.card title="Instructions" />
+        <x-ui.card title="Instructions">
+            <ol>
+                <li>Isang beses lamang maaaring mag-register ang aplikante upang maiwasan ang duplicate entries.</li>
+                <br>
+                <li>Basahin at unawaing maigi ang mga isinasaad sa form at siguraduhing tama ang lahat ng impormasyon na iyong ilalagay. Sundan lamang ang on-screen instructions hanggang sa huling bahagi at tandaan ang iyong tracking number dahil ito ang iyong gagamitin para makita ang iyong application status sa pamamagitan ng "TRACK APPLICATION" button.</li>
+                <br>
+                <li>Ang lahat ng application ay dadaan sa ibayong pagsusuri ng komite at ang makakatanggap lamang ng application form via email ay ang mga nakuhang beneficiaries ng programa. Mangyaring antabayanan lamang ang naturang email at sundin ang mga ibibigay na detalye patungkol sa pagpapasa mga requirements.</li>
+            </ol>
+
+            <hr>
+
+            <p>Para sa anumang mga katanungan, magpadala lamang ng mensahe sa sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page <a target="_new" href="https://www.facebook.com/pga.educ.assistance">(www.facebook.com/pga.educ.assistance)</a>.</p>
+
+        </x-ui.card>
     </div>
 </div>
 
