@@ -67,7 +67,7 @@
                 @endif
 
                 <form action="{{ route('track') }}" method="GET">
-                    <x-ui.form.input label="Enter track number" name="id" autofocus />
+                    <x-ui.form.input label="Enter track number" name="id" autofocus required />
                     <button class="btn btn-primary">Track</button>
                 </form>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicantsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ScholarController;
 use App\Http\Controllers\TrackingController;
@@ -27,7 +28,7 @@ Route::group(['prefix' => '/'], function(){
 // Protected routes
 Route::group(['middleware' => 'auth:web'], function(){
 
-    Route::view('dashboard', 'dashboard')->name('dashboard');
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'applicants', 'as' => 'applicant.'], function(){
         Route::get('/', [ApplicantsController::class, 'index'])->name('index');
