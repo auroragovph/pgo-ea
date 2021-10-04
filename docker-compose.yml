@@ -20,7 +20,7 @@ services:
         volumes:
             - '.:/var/www/html'
         networks:
-            - sail
+            - pgo_ea
         depends_on:
             - mysql
     mysql:
@@ -36,14 +36,15 @@ services:
         volumes:
             - 'sailmysql:/var/lib/mysql'
         networks:
-            - sail
+            - pgo_ea
         healthcheck:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
 networks:
-    sail:
-        driver: bridge
+  default:
+    external:
+      name: pgo_ea
 volumes:
     sailmysql:
         driver: local
