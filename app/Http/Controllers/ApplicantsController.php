@@ -13,7 +13,7 @@ class ApplicantsController extends Controller
     
     public function index()
     {
-        $applicants = Applicant::get();
+        $applicants = Applicant::doesntHave('scholar')->get();
 
 
         return view('applicant.index', [
@@ -42,6 +42,7 @@ class ApplicantsController extends Controller
         $applicant = Applicant::with('scholar')->find($id);
 
         if($applicant->scholar == null){
+
             $scholar = Scholar::create([
                 'applicant_id' => $applicant->id,
                 'period' => [
@@ -51,6 +52,11 @@ class ApplicantsController extends Controller
                 'amount' => $request->post('amount'),
                 'status' => $request->post('status')
             ]);
+
+        } else {
+            $applicant->scholar()->update([
+                'status' => $request->post('status')
+            ]);
         }
 
         
@@ -58,7 +64,7 @@ class ApplicantsController extends Controller
             'applicant_id' => $applicant->id,
             'remark' => $request->post('remarks'),
             'status' => $request->post('status'),
-            'user_id' => 0
+            'user_id' => auth()->user()->id
         ]);
 
 

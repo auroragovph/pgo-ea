@@ -18,7 +18,7 @@ class CreateRemarksTable extends Migration
             $table->foreignId('applicant_id')->nullable()->constrained('applicants')->onDelete('set null');
             $table->text('remark');
             $table->integer('status');
-            $table->integer('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
     }

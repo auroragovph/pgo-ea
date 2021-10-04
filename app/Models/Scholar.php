@@ -13,6 +13,11 @@ class Scholar extends Model
         'period' => 'json'
     ];
 
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class);
+    }
+
     public function latestRemark()
     {
         return $this->remarks()->orderByDesc('created_at')->take(1);

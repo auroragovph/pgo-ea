@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ScholarController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,13 +26,27 @@ Route::group(['prefix' => '/'], function(){
 
 // Protected routes
 Route::group(['middleware' => 'auth:web'], function(){
+
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
-    Route::group(['prefix' => 'applicants', 'as' => 'applicant.', 'middleware' => 'auth:web'], function(){
+    Route::group(['prefix' => 'applicants', 'as' => 'applicant.'], function(){
         Route::get('/', [ApplicantsController::class, 'index'])->name('index');
         Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
         Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
     });
+
+    Route::group(['prefix' => 'scholars', 'as' => 'scholar.'], function(){
+        Route::get('/', [ScholarController::class, 'index'])->name('index');
+    });
+
+    Route::group(['prefix' => 'users', 'as' => 'user.'], function(){
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::post('/', [UserController::class, 'store'])->name('store');
+
+    });
+
+
+
 });
 
 

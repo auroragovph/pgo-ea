@@ -334,7 +334,7 @@
                 <th class="text-left bg-gray-100  border-black border-opacity-75 text-xs font-sans font-light  ">
                     <p class="uppercase">FATHER`S NAME: <b> {{ $applicant->family['father']['name'] ?? '' }} </b><br>
                         ADDRESS:<b> {{ $applicant->family['father']['address'] ?? '' }}</b><br>
-                        CONTACT NUMBER: <b>{{ $applicant->family['father']['contact'] ?? '' }}</b><br>
+                        CONTACT NUMBER: <b>{{ $applicant->family['father']['contact_number'] ?? '' }}</b><br>
                         OCCUPATION: <b>{{ $applicant->family['father']['occupation'] ?? '' }}</b><br>
                         NAME OF EMPLOYER: <b>{{ $applicant->family['father']['employer'] ?? '' }}</b><br>
 
@@ -345,7 +345,7 @@
                     class="text-left bg-gray-100 border-l-2 border-black border-opacity-75 text-xs font-sans font-light  ">
                     <p class="uppercase">MOTHER`S NAME: <b>{{ $applicant->family['mother']['name'] ?? '' }}/b><br>
                         ADDRESS:<b> {{ $applicant->family['mother']['address'] ?? '' }}</b><br>
-                        CONTACT NUMBER: <b>{{ $applicant->family['mother']['contact'] ?? '' }}</b><br>
+                        CONTACT NUMBER: <b>{{ $applicant->family['mother']['contact_number'] ?? '' }}</b><br>
                         OCCUPATION:<b> {{ $applicant->family['mother']['occupation'] ?? '' }}</b><br>
                         NAME OF EMPLOYER: <b>{{ $applicant->family['mother']['employer'] ?? '' }}</b><br>
 
