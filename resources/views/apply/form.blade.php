@@ -141,7 +141,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <x-ui.form.input  placeholder="eg. bukid, bangka, tricycle, atbp." name="family_assets" required />
+                        <x-ui.form.input label="Ano ano ang pagmamay-ari ng iyong pamilya?" placeholder="eg. bukid, bangka, tricycle, atbp." name="family_assets" required />
                         <x-ui.form.input label="Naninirahan ka ba kasama ang iyong mga magulang?"  name="family_living" required />
                         <x-ui.form.input label="Kung may mga kapatid na nag-aaral pa, ilan at anong grade/year level na nila?"  name="family_sibling" required />
                         <x-ui.form.input label="Kung mayroong mga kapatid na nagsusustento sa inyong pamilya, ano ang kanilang trabaho at magkano ang kanilang buwanang kita?"  name="family_sponsor" required />
