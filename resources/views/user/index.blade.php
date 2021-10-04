@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('page-title', 'Applicants')
+@section('page-title', 'Users')
 
 
 @section('page-action')
