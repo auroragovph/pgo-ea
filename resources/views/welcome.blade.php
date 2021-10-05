@@ -14,8 +14,9 @@
                 <li>I-click and "NEW APPLICATION" button para makapag-register. Isang beses lamang ito maaaring gawin ng aplikante upang maiwasan ang duplicate entries.</li>
                 <li>Basahin at unawaing maigi ang mga isinasaad sa form at siguraduhing tama ang lahat ng impormasyon na iyong ilalagay. Sundan lamang ang on-screen instructions hanggang sa huling bahagi at tandaan ang iyong tracking number dahil ito ang iyong gagamitin para makita ang iyong application status sa pamamagitan ng "TRACK APPLICATION" button.</li>
                 <li>Ang lahat ng application ay dadaan sa ibayong pagsusuri ng komite at ang makakatanggap lamang ng application form via email ay ang mga nakuhang beneficiaries ng programa. Mangyaring antabayanan lamang ang naturang email at sundin ang mga ibibigay na detalye patungkol sa pagpapasa mga requirements.</li>
-                <li>Para sa anumang mga katanungan, magpadala lamang ng mensahe sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page <a target="_new" href="www.facebook.com/pga.educ.assistance">(www.facebook.com/pga.educ.assistance)</a>.</li>
             </ol>
+
+            <x-include.help />
         </div>
     </div>
 </section>
@@ -25,7 +26,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 text-center text-lg-left pr-lg-5">
-                    <h1 class="welcome-title">Provincial Government of Aurora Educational Assistance for College Students</h1>
+
+                    <h2 class="welcome-title">Provincial Government of Aurora</h2>
+
+                    <h3>Educational Assistance for College Students</h3>
 
                     <p class="welcome-description">
                         Online Pre-Application
@@ -49,19 +53,4 @@
             </div>
         </div>
     </section>
-
-    <section id="tracking-section" class="section bg-light text-center">
-        <div class="container">
-            <h3 class="h4 mb-1">Application Tracker</h3>
-
-            <br><br>
-
-            <form action="{{ route('track') }}" method="GET">
-                <input required name="id" placeholder="Enter Tracking Number" type="text" class="form-input"> <button type="submit" class="btn btn-blue ml-2">Track</button>
-            </form>
-
-        </div>
-    </section>
-
-    
 @endsection

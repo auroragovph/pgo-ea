@@ -217,7 +217,7 @@
 
             <hr>
 
-            <p>Para sa anumang mga katanungan, magpadala lamang ng mensahe sa sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page <a target="_new" href="https://www.facebook.com/pga.educ.assistance">(www.facebook.com/pga.educ.assistance)</a>.</p>
+            <x-include.help />
 
         </x-ui.card>
     </div>

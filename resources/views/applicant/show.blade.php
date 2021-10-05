@@ -98,8 +98,33 @@
                 </div>
 
                 <div class="col-md-12">
-                    <x-ui.card title="Other Details">
+                    <x-ui.card title="Family Details">
                         <table class="table">
+
+                            <tr>
+                                <td>
+                                    <p class="text-center"><strong>Father Details:</strong></p>
+
+                                    <p><strong>Name: </strong>  {{ $applicant->family['father']['name'] ?? '' }}</p>
+                                    <p><strong>Address: </strong> {{ $applicant->family['father']['address'] ?? '' }}</p>
+                                    <p><strong>Contact Number: </strong> {{ $applicant->family['father']['contact_number'] ?? '' }}</p>
+                                    <p><strong>Occupation: </strong> {{ $applicant->family['father']['occupation'] ?? '' }}</p>
+                                    <p><strong>Employer: </strong> {{ $applicant->family['father']['employer'] ?? '' }}</p>
+                                </td>
+
+                                <td>
+                                    <p class="text-center"><strong>Mother Details:</strong></p>
+
+                                    <p><strong>Name: </strong>  {{ $applicant->family['mother']['name'] ?? '' }}</p>
+                                    <p><strong>Address: </strong> {{ $applicant->family['mother']['address'] ?? '' }}</p>
+                                    <p><strong>Contact Number: </strong> {{ $applicant->family['mother']['contact_number'] ?? '' }}</p>
+                                    <p><strong>Occupation: </strong> {{ $applicant->family['mother']['occupation'] ?? '' }}</p>
+                                    <p><strong>Employer: </strong> {{ $applicant->family['mother']['employer'] ?? '' }}</p>
+                                </td>
+                            </tr>
+
+
+
                             <tr>
                                 <td><strong>Pag-aari ng Pamilya</strong></td>
                                 <td>{{ $applicant->family['assets'] ?? '' }}</td>
@@ -116,6 +141,16 @@
                                 <td><strong>Kapatid nag susustento</strong></td>
                                 <td>{{ $applicant->family['sponsor'] ?? '' }}</td>
                             </tr>
+
+
+                        </table>
+                    </x-ui.card>
+                </div>
+
+                <div class="col-md-12">
+                    <x-ui.card title="Other Details">
+                        <table class="table">
+                            
                             <tr>
                                 <td><strong>Working Student</strong></td>
                                 <td>{{ $applicant->other['working'] ?? '' }}</td>
@@ -136,7 +171,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <x-ui.card title="Assessment Form">
+            <x-ui.card title="Assessment Form" class="sticky-top">
                 <form id="ajax_form" method="POST" action="{{ route('applicant.assess', $applicant->id) }}">
                     @csrf
                     <div class="row">
