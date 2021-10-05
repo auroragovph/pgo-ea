@@ -25,6 +25,8 @@ class FormApplicationRequest extends FormRequest
     {
         return [
 
+            'g-recaptcha-response' => ['recaptcha'],
+
             // personal information
             'first_name'        => ['required'],
             'last_name'         => ['required'],
@@ -71,6 +73,13 @@ class FormApplicationRequest extends FormRequest
             'other_ol_type'     => ['required'],
             'other_ol_internet' => ['required'],
 
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.recaptcha' => 'Check the CAPTCHA validation.'
         ];
     }
 }

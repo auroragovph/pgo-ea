@@ -123,8 +123,6 @@
                                 </td>
                             </tr>
 
-
-
                             <tr>
                                 <td><strong>Pag-aari ng Pamilya</strong></td>
                                 <td>{{ $applicant->family['assets'] ?? '' }}</td>
