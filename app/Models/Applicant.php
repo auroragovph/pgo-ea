@@ -20,7 +20,6 @@ class Applicant extends Model
         'props'    => 'json',
     ];
 
-
     public function getTrackingNumberAttribute()
     {
         return generate_tracking_number($this->id);

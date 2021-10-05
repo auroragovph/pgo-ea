@@ -97,8 +97,9 @@ class FormController extends Controller
         }
 
         return response()->json([
-            'message'  => "Your application has been recorded. Your tracking number is: " . generate_tracking_number($applicant->id),
+            'message'  => "Your application has been recorded. Your tracking number is: " . generate_tracking_number($applicant->id).". Save this tracking number (screenshot or take note) to track the progress of your application.",
             'intended' => $intended,
+            'timer' => 50000
         ], 200);
     }
 }

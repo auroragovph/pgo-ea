@@ -14,20 +14,8 @@
                 <li>I-click and "NEW APPLICATION" button para makapag-register. Isang beses lamang ito maaaring gawin ng aplikante upang maiwasan ang duplicate entries.</li>
                 <li>Basahin at unawaing maigi ang mga isinasaad sa form at siguraduhing tama ang lahat ng impormasyon na iyong ilalagay. Sundan lamang ang on-screen instructions hanggang sa huling bahagi at tandaan ang iyong tracking number dahil ito ang iyong gagamitin para makita ang iyong application status sa pamamagitan ng "TRACK APPLICATION" button.</li>
                 <li>Ang lahat ng application ay dadaan sa ibayong pagsusuri ng komite at ang makakatanggap lamang ng application form via email ay ang mga nakuhang beneficiaries ng programa. Mangyaring antabayanan lamang ang naturang email at sundin ang mga ibibigay na detalye patungkol sa pagpapasa mga requirements.</li>
-                <li>Para sa anumang mga katanungan, magpadala lamang ng mensahe sa sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page <a target="_new" href="www.facebook.com/pga.educ.assistance">(www.facebook.com/pga.educ.assistance)</a>.</li>
+                <li>Para sa anumang mga katanungan, magpadala lamang ng mensahe sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page <a target="_new" href="www.facebook.com/pga.educ.assistance">(www.facebook.com/pga.educ.assistance)</a>.</li>
             </ol>
-
-
-
-            <h3 id="website-visitors">For Failed Application</h3>
-
-            <p>Magpadala ng mensahe sa numerong 0968-854-7611 o Aurora Province Educational Assistance FB Page
-                <a href="https://facebook.com/pga.educ.assistance"
-                    target="_blank">(www.facebook.com/pga.educ.assistance)</a> tuwing 8AM-4PM, Lunes-Biyernes at sundan
-                ang sumusunod na template:
-            </p>
-
-
         </div>
     </div>
 </section>

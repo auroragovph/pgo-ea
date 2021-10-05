@@ -23,17 +23,20 @@ document.getElementById('ajax_form').addEventListener('submit', function (e) {
     .then(res => {
 
       Swal.fire({
-        title: 'Success',
+        title: res.data.title ?? 'Success',
         text: res.data.message ?? 'Success',
         icon: 'success',
-        showCancelButton: false,
+        showCancelButton: res.data.cancel_button ?? false,
+        showConfirmButton: res.data.confirm_button ?? true,
+
         confirmButtonText: 'Ok.',
-        allowOutsideClick: false
+        allowOutsideClick: false,
+        timer: res.data.timer ?? 0
 
       }).then((result) => {
 
         if (result.isConfirmed) {
-
+          
           if ("intended" in res.data) {
             window.location = res.data.intended;
           }

@@ -170,7 +170,7 @@
                                     Educational Assistance
                                 </x-ui.form.text-area>
 
-                                <x-ui.form.input type="number" label="Amount" step="0.01" value="{{ $applicant->scholar->amount }}" readonly/>
+                                <x-ui.form.input label="Amount" value="{{ pretty_number($applicant->scholar->amount) }}" readonly/>
 
 
                             </div>
