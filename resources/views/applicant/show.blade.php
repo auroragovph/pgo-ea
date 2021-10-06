@@ -15,7 +15,7 @@
 
 
 @section('content')
-    <div class="row">
+    <div class="row row-cards">
 
         <div class="col-md-6">
             <div class="row row-cards">
@@ -124,9 +124,21 @@
                             </tr>
 
                             <tr>
+                                <td><strong>Family Income</strong></td>
+                                <td>{{ pretty_number($applicant->family['income']) ?? '' }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Family Members</strong></td>
+                                <td>{{ $applicant->family['member'] ?? '' }}</td>
+                            </tr>
+
+                            <tr>
                                 <td><strong>Pag-aari ng Pamilya</strong></td>
                                 <td>{{ $applicant->family['assets'] ?? '' }}</td>
                             </tr>
+
+
                             <tr>
                                 <td><strong>Naninirahan Kasama Ang Magulang</strong></td>
                                 <td>{{ $applicant->family['living'] ?? '' }}</td>

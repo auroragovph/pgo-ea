@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row row-cards">
     <div class="col-md-8">
         <x-ui.card title="Application Form" class_header="bg-green">
 
@@ -206,7 +206,7 @@
         </x-ui.card>
     </div>
     <div class="col-md-4">
-        <x-ui.card title="Instructions">
+        <x-ui.card title="Instructions" class="sticky-top">
             <ol>
                 <li>Isang beses lamang maaaring mag-register ang aplikante upang maiwasan ang duplicate entries.</li>
                 <br>

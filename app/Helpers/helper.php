@@ -28,12 +28,7 @@ if (!function_exists('tracking_to_id')) {
     function tracking_to_id(string $string)
     {
         $string = preg_replace('~\D~', '', $string);
-
-        if (strlen($string) < 10) {
-            return $string;
-        }
-
-        return (int) substr($string, 8, 8);
+        return intval($string);
     }
 }
 

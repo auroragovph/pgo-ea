@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Applicant;
 use App\Models\f;
 use App\Models\Remark;
 use App\Models\Scholar;
+use App\Models\Applicant;
 use Illuminate\Http\Request;
+use App\Http\Resources\Applicant\DT;
 
 class ApplicantsController extends Controller
 {
     
     public function index()
     {
-        $applicants = Applicant::doesntHave('scholar')->get();
 
+        if (request()->ajax()) {
+            return response()->json($this->_dt());
+        }
 
-        return view('applicant.index', [
-            'applicants' => $applicants
-        ]);
+        return view('applicant.index');
     }
 
     public function show($id)
@@ -72,6 +73,19 @@ class ApplicantsController extends Controller
             'message'  => "Remark has been added.",
             'intended' => route('applicant.show', $id)
         ], 200);
+    }
+
+    public function _dt()
+    {
+        $applicants = Applicant::doesntHave('scholar')->get();
+
+        $datas   = DT::collection($applicants);
+
+        return [
+            'heading' => ['#', 'Name', 'Address', 'School', 'Action'],
+            'data'    => $datas,
+        ];
+
     }
 
     

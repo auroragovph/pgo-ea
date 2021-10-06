@@ -25,6 +25,11 @@ class Applicant extends Model
         return generate_tracking_number($this->id);
     }
 
+    public function getFullNameAttribute()
+    {
+        return name($this->name);
+    }
+
 
     public function scholar()
     {
