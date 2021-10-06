@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FormApplicationRequest;
 use App\Models\Applicant;
+use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
@@ -15,11 +16,33 @@ class FormController extends Controller
     public function submit(FormApplicationRequest $request)
     {
 
+        // check if the name already exists in the applicants
+        
+
         $name = [
             'first'  => $request->post("first_name"),
             'last'   => $request->post("last_name"),
             'middle' => $request->post("middle_name"),
         ];
+
+
+        $check_name = Applicant::query()
+                        ->whereRaw('LOWER(name->"$.last") like ?', "%".strtolower($name['last'])."%")
+                        ->whereRaw('LOWER(name->"$.first") like ?', "%".strtolower($name['first'])."%")
+                        ->whereRaw('LOWER(name->"$.middle") like ?', "%".strtolower($name['middle'])."%")
+                        ->count();
+
+        if($check_name !== 0){
+
+            return response()
+                ->json([
+                    'message' => 'Invalid form input',
+                    'errors' => [
+                        "applicant" => ["Applicant already exists."]
+                    ]
+                ], 422);
+        }
+
 
         $personal = [
             'civil_status'   => $request->post("civil_status"),
