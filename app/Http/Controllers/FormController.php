@@ -2,29 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Applicant;
 use App\Http\Requests\FormApplicationRequest;
+use App\Models\Applicant;
+use Carbon\Carbon;
 
 class FormController extends Controller
 {
     public function index()
     {
         $date = Carbon::parse('2021-10-08 16:00:00');
-        
+
         return view('apply.form', [
-            'date' => $date 
+            'date' => $date,
         ]);
     }
 
     public function submit(FormApplicationRequest $request)
     {
+        // check if the name already exists in the applicants
 
         $name = [
             'first'  => $request->post("first_name"),
             'last'   => $request->post("last_name"),
             'middle' => $request->post("middle_name"),
         ];
+
+        $check_name = Applicant::query()
+            ->whereRaw('LOWER(name->"$.last") like ?', "%" . strtolower($name['last']) . "%")
+            ->whereRaw('LOWER(name->"$.first") like ?', "%" . strtolower($name['first']) . "%")
+            ->whereRaw('LOWER(name->"$.middle") like ?', "%" . strtolower($name['middle']) . "%")
+            ->count();
+
+        if ($check_name !== 0) {
+
+            return response()
+                ->json([
+                    'message' => 'Invalid form input',
+                    'errors'  => [
+                        "applicant" => ["Applicant already exists."],
+                    ],
+                ], 422);
+        }
+
 
         $personal = [
             'civil_status'   => $request->post("civil_status"),
@@ -95,16 +114,16 @@ class FormController extends Controller
             'other'    => $other,
         ]);
 
-        if(auth()->check()){
+        if (auth()->check()) {
             $intended = route('apply.form');
-        }else{
+        } else {
             $intended = route('homepage');
         }
 
         return response()->json([
-            'message'  => "Your application has been recorded. Your tracking number is: " . generate_tracking_number($applicant->id).". Save this tracking number (screenshot or take note) to track the progress of your application.",
+            'message'  => "Your application has been recorded. Your tracking number is: " . generate_tracking_number($applicant->id) . ". Save this tracking number (screenshot or take note) to track the progress of your application.",
             'intended' => $intended,
-            'timer' => 50000
+            'timer'    => 50000,
         ], 200);
     }
 }
