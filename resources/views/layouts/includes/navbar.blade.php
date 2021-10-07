@@ -49,7 +49,7 @@
               </li>
 
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.index') }}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <x-ui.icon icon="settings" />
@@ -58,7 +58,7 @@
                     Settings
                   </span>
                 </a>
-              </li>
+              </li> --}}
 
 
           
