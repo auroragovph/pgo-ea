@@ -43,10 +43,7 @@ Route::group(['middleware' => 'auth:web'], function(){
     Route::group(['prefix' => 'users', 'as' => 'user.'], function(){
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::post('/', [UserController::class, 'store'])->name('store');
-
     });
-
-
 
 });
 

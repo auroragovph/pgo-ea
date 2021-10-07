@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FormApplicationRequest;
+use Carbon\Carbon;
 use App\Models\Applicant;
+use App\Http\Requests\FormApplicationRequest;
 
 class FormController extends Controller
 {
     public function index()
     {
-        return view('apply.form');
+        $date = Carbon::parse('2021-10-08 16:00:00');
+        
+        return view('apply.form', [
+            'date' => $date 
+        ]);
     }
 
     public function submit(FormApplicationRequest $request)

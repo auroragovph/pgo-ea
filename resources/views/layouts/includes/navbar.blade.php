@@ -49,6 +49,18 @@
               </li>
 
 
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.index') }}" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <x-ui.icon icon="settings" />
+                  </span>
+                  <span class="nav-link-title">
+                    Settings
+                  </span>
+                </a>
+              </li>
+
+
           
           </ul>
           <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
