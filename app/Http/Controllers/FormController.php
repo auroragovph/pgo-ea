@@ -10,7 +10,7 @@ class FormController extends Controller
 {
     public function index()
     {
-        $date = Carbon::parse('2021-10-08 16:00:00');
+        $date = Carbon::parse('2021-10-15 16:00:00');
 
         return view('apply.form', [
             'date' => $date,
