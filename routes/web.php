@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\MySqlController;
 use App\Http\Controllers\ScholarController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\UserController;
@@ -43,6 +44,11 @@ Route::group(['middleware' => 'auth:web'], function(){
     Route::group(['prefix' => 'users', 'as' => 'user.'], function(){
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::post('/', [UserController::class, 'store'])->name('store');
+    });
+
+
+    Route::group(['prefix' => 'mysql', 'as' => 'mysql.'], function(){
+        Route::get('/dump', [MySqlController::class, 'dump'])->name('dump');
     });
 
 });

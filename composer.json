@@ -12,7 +12,8 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "rap2hpoutre/laravel-log-viewer": "^1.7"
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
+        "spatie/db-dumper": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
