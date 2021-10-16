@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MySqlController;
 use App\Http\Controllers\ScholarController;
+use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'auth:web'], function(){
         Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
         Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
     });
+
+    Route::get('/screening/{type}', ScreeningController::class)->name('screen');
 
     Route::group(['prefix' => 'scholars', 'as' => 'scholar.'], function(){
         Route::get('/', [ScholarController::class, 'index'])->name('index');
