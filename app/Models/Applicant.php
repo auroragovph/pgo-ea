@@ -12,7 +12,7 @@ class Applicant extends Model
     protected $guarded = [];
 
     protected $casts = [
-        // 'name'     => 'json',
+        'name'     => 'json',
         'personal' => 'json',
         'school'   => 'json',
         'family'   => 'json',
