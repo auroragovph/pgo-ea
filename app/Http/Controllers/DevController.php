@@ -25,5 +25,8 @@ class DevController extends Controller
             }
             continue;
         }
+
+
+        echo 'Success';
     }
 }

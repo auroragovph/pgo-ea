@@ -193,17 +193,15 @@
                                     Educational Assistance
                                 </x-ui.form.text-area>
 
-                                <x-ui.form.input type="number" label="Amount" step="0.01" name="amount" required />
-
-
+                                <x-ui.form.input type="number" label="Amount" step="0.01" name="amount" value="5000" required />
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" label="Period Cover Start" name="period_start" required />
+                                    <x-ui.form.input type="date" value="2021-08-01" label="Period Cover Start" name="period_start" required />
                                 </div>
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" label="Period Cover End" name="period_end" required />
+                                    <x-ui.form.input type="date" value="2021-12-01" label="Period Cover End" name="period_end" required />
                                 </div>
                             </div>
 

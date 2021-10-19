@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DevController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MySqlController;
 use App\Http\Controllers\ScholarController;
@@ -50,10 +51,10 @@ Route::group(['middleware' => 'auth:web'], function(){
     });
 
 
-    Route::group(['prefix' => 'mysql', 'as' => 'mysql.'], function(){
-        Route::get('/dump', [MySqlController::class, 'dump'])->name('dump');
+    Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
+        Route::get('reds', [DevController::class, 'reds'])->name('reds');
     });
-
+    
 });
 
 
