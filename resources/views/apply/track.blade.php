@@ -61,10 +61,10 @@
                                         <h3 class="text-center">APPROVED APPLICATIONS </h3>
                                         <p>Your application form will be sent via email along with further instructions and submission schedule. In the meantime, please prepare the following documents:</p>
                                         <ul>
-                                            <li>Original or certified true copy of enrollment/registration form issued by the school registrar</li>
-                                            <li>Original or certified true copy of grades with general weighted average issued by the school registrar</li>
-                                            <li>Original Certificate of Indigency/Low Income issued by the barangay </li>
-                                            <li>Original Certificate of No Existing Scholarship issued by the school registrar or MSWDO</li>
+                                            <li>Original or certified true copy of enrollment/registration form issued by the <strong>school registrar</strong></li>
+                                            <li>Original or certified true copy of grades with general weighted average issued by the <strong>school registrar</strong></li>
+                                            <li>Original Certificate of Indigency/Low Income issued by the <strong>barangay</strong> </li>
+                                            <li>Original Certificate of No Existing Scholarship issued by the <strong>school registrar</strong> or <strong>MSWDO</strong></li>
                                             <li>Photocopy of both parents'/guardian's valid ID</li>
                                         </ul>
                                 

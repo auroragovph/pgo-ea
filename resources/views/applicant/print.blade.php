@@ -323,7 +323,7 @@
         </table>
         <table class="m-0 border-black border-opacity-75 border " style="width: 100%">
             <tr>
-                <th class="text-center bg-gray-100 border-black border-opacity-75 text-xs font-sans font-light  ">
+                <th class="text-center bg-gray-100 border-black border-opacity-75 text-xs font-sans font-light">
                     IMPORMASYON NG IYONG PAMILYA</th>
 
 
@@ -331,26 +331,23 @@
         </table>
         <table class="m-0 border-black border-opacity-75 border " style="width: 100%">
             <tr>
-                <th class="text-left bg-gray-100  border-black border-opacity-75 text-xs font-sans font-light  ">
-                    <p class="uppercase">FATHER`S NAME: <b> {{ $applicant->family['father']['name'] ?? '' }} </b><br>
-                        ADDRESS:<b> {{ $applicant->family['father']['address'] ?? '' }}</b><br>
-                        CONTACT NUMBER: <b>{{ $applicant->family['father']['contact_number'] ?? '' }}</b><br>
-                        OCCUPATION: <b>{{ $applicant->family['father']['occupation'] ?? '' }}</b><br>
-                        NAME OF EMPLOYER: <b>{{ $applicant->family['father']['employer'] ?? '' }}</b><br>
-
-
-
+                <th class="text-left bg-gray-100  border-black border-opacity-75 text-xs font-sans font-light">
+                    <p class="uppercase">
+                        FATHER'S NAME:{{ $applicant->family['father']['name'] ?? '' }}              <br>
+                        ADDRESS:{{ $applicant->family['father']['address'] ?? '' }}                 <br>
+                        CONTACT NUMBER:{{ $applicant->family['father']['contact_number'] ?? '' }}   <br>
+                        OCCUPATION:{{ $applicant->family['father']['occupation'] ?? '' }}           <br>
+                        NAME OF EMPLOYER:{{ $applicant->family['father']['employer'] ?? '' }}       <br>
                     </p>
-                <th
-                    class="text-left bg-gray-100 border-l-2 border-black border-opacity-75 text-xs font-sans font-light  ">
-                    <p class="uppercase">MOTHER`S NAME: <b>{{ $applicant->family['mother']['name'] ?? '' }}/b><br>
-                        ADDRESS:<b> {{ $applicant->family['mother']['address'] ?? '' }}</b><br>
-                        CONTACT NUMBER: <b>{{ $applicant->family['mother']['contact_number'] ?? '' }}</b><br>
-                        OCCUPATION:<b> {{ $applicant->family['mother']['occupation'] ?? '' }}</b><br>
-                        NAME OF EMPLOYER: <b>{{ $applicant->family['mother']['employer'] ?? '' }}</b><br>
-
-
+                <th class="text-left bg-gray-100 border-l-2 border-black border-opacity-75 text-xs font-sans font-light">
+                    <p class="uppercase">
+                        MOTHER'S NAME: {{ $applicant->family['mother']['name'] ?? '' }}             <br>
+                        ADDRESS:{{ $applicant->family['mother']['address'] ?? '' }}                 <br>
+                        CONTACT NUMBER: {{ $applicant->family['mother']['contact_number'] ?? '' }}  <br>
+                        OCCUPATION: {{ $applicant->family['mother']['occupation'] ?? '' }}          <br>
+                        NAME OF EMPLOYER: {{ $applicant->family['mother']['employer'] ?? '' }}      <br>
                     </p>
+
                 </th>
 
 
