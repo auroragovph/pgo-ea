@@ -10,7 +10,7 @@
 @section('content')
 
 
-@if($date > now())
+@auth
 
     <div class="row row-cards">
         <div class="col-md-8">
@@ -232,7 +232,7 @@
 <h1 class="text-center">Application has been closed.</h1>
 
 
-@endif
+@endauth
 
 
 
