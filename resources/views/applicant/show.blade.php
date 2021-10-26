@@ -7,7 +7,7 @@
 
 @section('page-action')
     @if ($applicant->scholar !== null)
-        <a href="{{ route('applicant.show', $applicant->id) }}?print=true" class="btn btn-primary">
+        <a href="{{ route('applicant.print', $applicant->id) }}" class="btn btn-primary">
             <x-ui.icon icon="printer" /> Print
         </a>
     @endif

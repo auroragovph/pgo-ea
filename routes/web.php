@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:web'], function(){
         Route::get('/', [ApplicantsController::class, 'index'])->name('index');
         Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
         Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
+        Route::get('/{id}/print', [ApplicantsController::class, 'print'])->name('print');
     });
 
     Route::get('/screening/{type}', ScreeningController::class)->name('screen');
