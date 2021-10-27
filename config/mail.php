@@ -2,8 +2,8 @@
 
 return [
 
-    'email_address' => 'mis.aurora.gov@gmail.com',
-    'password' => 'Mis.07012019',
+    'email_address' => 'pga.educ.assistance@gmail.com',
+    'password' => 'governorsoffice',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     */
 
     'from' => [
-        'address' => 'mis.aurora.gov@gmail.com',
+        'address' => 'pga.educ.assistance@gmail.com',
         'name' => 'PGA EDUCATIONAL ASSISTANCE',
     ],
 
