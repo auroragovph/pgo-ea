@@ -2,6 +2,9 @@
 
 return [
 
+    'email_address' => 'mis.aurora.gov@gmail.com',
+    'password' => 'Mis.07012019',
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -43,6 +46,15 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
+        ],
+
+        'gmail' => [
+            'transport' => 'smtp',
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'encryption' => 'tls',
+            'username' => config('mail.email_address'),
+            'password' => config('mail.password'),
         ],
 
         'ses' => [
@@ -92,8 +104,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'mis.aurora.gov@gmail.com',
+        'name' => 'PGA EDDUCATIONAL ASSISTANCE',
     ],
 
     /*

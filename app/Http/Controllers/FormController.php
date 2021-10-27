@@ -62,7 +62,7 @@ class FormController extends Controller
 
         $school = [
             "name"       => $request->post("school_name"),
-            "address"    => $request->post("school_name"),
+            "address"    => $request->post("school_address"),
             "year_level" => $request->post("school_year"),
             "gwa"        => $request->post("school_gwa"),
         ];

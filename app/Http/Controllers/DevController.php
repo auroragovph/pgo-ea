@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Application\Approved;
 use App\Models\Applicant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DevController extends Controller
 {
+    public function email()
+    {
+        $applicant = Applicant::with('scholar', 'remarks')->find(2);
+        
+        Mail::to('jp.pagapulan@gmail.com')->send(new Approved($applicant));
+
+        // return view('emails.application.approved');
+    }
     public function reds()
     {
         $applicants = Applicant::get();
