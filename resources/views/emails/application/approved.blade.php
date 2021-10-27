@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <td class="content pt-0">
-                        <h3>Good day, RICARDO DALISAY!</h3>
+                        <h3>Good day, {{ strtoupper(name($applicant->name)) }}!</h3>
 
                         <p>We are pleased to inform you that you have been ACCEPTED as one of the beneficiaries of the Provincial Government of Aurora's Educational Assistance Program for Indigent College Students for the 1st semester, S.Y. 2021-2022.</p>
                         <p>To proceed with your application, please read and follow these instructions carefully:</p>

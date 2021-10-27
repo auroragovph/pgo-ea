@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\PDF;
 use App\Models\Remark;
 use App\Models\Scholar;
 use App\Models\Applicant;
 use Illuminate\Http\Request;
+use App\Mail\Application\Approved;
 use App\Http\Resources\Applicant\DT;
-use App\Service\PDF;
-use Carbon\Carbon;
-// use mikehaertl\pdftk\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 class ApplicantsController extends Controller
 {
@@ -39,24 +39,24 @@ class ApplicantsController extends Controller
         $applicant = Applicant::with('scholar')->find($id);
 
         if($applicant->scholar == null){
-
             $scholar = Scholar::create([
                 'applicant_id' => $applicant->id,
-                'period' => [
-                    'start' => $request->post('period_start'),
-                    'end' => $request->post('period_end'),
-                ],
-                'amount' => $request->post('amount'),
                 'status' => $request->post('status')
             ]);
-
         } else {
             $applicant->scholar()->update([
                 'status' => $request->post('status')
             ]);
         }
 
-        
+
+        // sending emails
+        switch($request->post('status')){
+            case 4: 
+                    Mail::to($applicant->personal['email_address'])->queue(new Approved($applicant));
+                break;
+        }
+
         $remark = Remark::create([
             'applicant_id' => $applicant->id,
             'remark' => $request->post('remarks'),
@@ -87,23 +87,8 @@ class ApplicantsController extends Controller
     public function print($id)
     {
         $applicant = Applicant::with('scholar', 'remarks')->findOrFail($id);
-
         $pdf = new PDF($applicant);
-
-        $result = $pdf->raw();
-
-        dd($result);
-
-
-
-
-        // $pdf = new Pdf(base_path('pdf/form.pdf'));
-
-        // $pdf->fillForm();
-
-
-        // $result = $pdf->needAppearances()->flatten()->send();
-
+        $result = $pdf->send();
     }
 
     

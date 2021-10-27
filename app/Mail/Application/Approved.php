@@ -33,12 +33,12 @@ class Approved extends Mailable
      */
     public function build()
     {
-
         $pdf = new PDF($this->applicant);
+        $filename = $this->applicant->tracking_number.".pdf";
 
         return $this->subject('Scholarship Status')
                     ->view('emails.application.approved')
-                    ->attachData($pdf->raw(), 'name.pdf', [
+                    ->attachData($pdf->raw(), $filename, [
                         'mime' => 'application/pdf',
                     ]);
     }

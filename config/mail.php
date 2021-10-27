@@ -105,7 +105,7 @@ return [
 
     'from' => [
         'address' => 'mis.aurora.gov@gmail.com',
-        'name' => 'PGA EDDUCATIONAL ASSISTANCE',
+        'name' => 'PGA EDUCATIONAL ASSISTANCE',
     ],
 
     /*

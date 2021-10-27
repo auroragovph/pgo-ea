@@ -15,6 +15,5 @@ return [
         5 => 'For Claiming',
         6 => 'First Screening',
         7 => 'Final Screening',
-
     ]
 ];

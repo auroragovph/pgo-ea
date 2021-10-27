@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth:web'], function(){
     Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
         Route::get('reds', [DevController::class, 'reds'])->name('reds');
         Route::get('email', [DevController::class, 'email'])->name('email');
+        Route::get('pdf', [DevController::class, 'pdf'])->name('pdf');
+        Route::get('school', [DevController::class, 'school'])->name('school');
+
+
     });
     
 });

@@ -6,12 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scholar extends Model
 {
-
     protected $guarded = [];
-    
-    protected $casts = [
-        'period' => 'json'
-    ];
 
     public function applicant()
     {

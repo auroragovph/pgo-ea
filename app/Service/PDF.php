@@ -15,6 +15,10 @@ class PDF {
     public function __construct(Applicant $applicant)
     {
         $this->pdf = new Pdftk(base_path('pdf/form.pdf'));
+
+        $this->pdf->tempDir = storage_path('temp');
+
+
         $this->applicant = $applicant;
         $this->fill();
     }
@@ -22,6 +26,8 @@ class PDF {
     public function fill()
     {
         $applicant = $this->applicant;
+
+        $school_address = ($applicant->school['name'] == $applicant->school['address']) ? '' : $applicant->school['address'];
 
         return $this->pdf->fillForm([
             'tracking' => $applicant->tracking_number,
@@ -40,7 +46,7 @@ class PDF {
             'personal_email' => $applicant->personal['email_address'] ?? '',
 
             'school_name' => $applicant->school['name'] ?? '',
-            'school_address' => $applicant->school['address'] ?? '',
+            'school_address' => $school_address,
             'school_gwa' => $applicant->school['gwa'] ?? '',
             'school_year' => $applicant->school['year_level'] ?? '',
 
@@ -72,6 +78,8 @@ class PDF {
 
             'application_date' => $applicant->created_at->format('F d, Y')
         ])->needAppearances()->flatten();
+        // ])->flatten();
+
     }
 
     public function send($name = null)
@@ -81,7 +89,6 @@ class PDF {
 
     public function raw()
     {
-        return $this->pdf->getTmpFile()->getFileName();
-        // return file_get_contents( (string) $this->pdf->getTmpFile() );
+        return $this->pdf->toString();
     }
 }

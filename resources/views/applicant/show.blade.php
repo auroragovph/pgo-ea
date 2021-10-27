@@ -28,16 +28,15 @@
                             <table class="table">
                                 <tr>
                                     <td><strong>Particulars</strong></td>
-                                    <td>{{ $applicant->scholar->particulars }}</td>
+                                    <td>Educational Assistance</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Amount</strong></td>
-                                    <td>{{ pretty_number($applicant->scholar->amount) }}</td>
+                                    <td>5,000</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Period Cover</strong></td>
-                                    <td>{{ $applicant->scholar->period['start'] }} -
-                                        {{ $applicant->scholar->period['end'] }}</td>
+                                    <td>October 2021 - December 2021</td>
                                 </tr>
 
                                 <?php
@@ -114,7 +113,6 @@
 
                                 <td>
                                     <p class="text-center"><strong>Mother Details:</strong></p>
-
                                     <p><strong>Name: </strong>  {{ $applicant->family['mother']['name'] ?? '' }}</p>
                                     <p><strong>Address: </strong> {{ $applicant->family['mother']['address'] ?? '' }}</p>
                                     <p><strong>Contact Number: </strong> {{ $applicant->family['mother']['contact_number'] ?? '' }}</p>
@@ -193,15 +191,15 @@
                                     Educational Assistance
                                 </x-ui.form.text-area>
 
-                                <x-ui.form.input type="number" label="Amount" step="0.01" name="amount" value="5000" required />
+                                <x-ui.form.input label="Amount" name="amount" value="5,000" readonly required />
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" value="2021-08-01" label="Period Cover Start" name="period_start" required />
+                                    <x-ui.form.input value="October 2021" label="Period Cover Start" name="period_start" readonly required />
                                 </div>
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" value="2021-12-01" label="Period Cover End" name="period_end" required />
+                                    <x-ui.form.input value="December 2021" label="Period Cover End" name="period_end" readonly required />
                                 </div>
                             </div>
 
@@ -213,17 +211,17 @@
                                     Educational Assistance
                                 </x-ui.form.text-area>
 
-                                <x-ui.form.input label="Amount" value="{{ pretty_number($applicant->scholar->amount) }}" readonly/>
+                                <x-ui.form.input label="Amount" value="5000" readonly/>
 
 
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" label="Period Cover Start" value="{{ $applicant->scholar->period['start'] }}" readonly />
+                                    <x-ui.form.input label="Period Cover Start" value="October 2021" readonly />
                                 </div>
                                 <div class="col-md-6">
-                                    <x-ui.form.input type="date" label="Period Cover End" value="{{ $applicant->scholar->period['end'] }}" readonly />
+                                    <x-ui.form.input label="Period Cover End" value="December 2021" readonly />
                                 </div>
                             </div>
                         @endif
