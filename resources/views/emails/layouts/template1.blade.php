@@ -6,41 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="telephone=no" name="format-detection" />
     <title></title>
-    <style type="text/css" data-premailer="ignore">
-        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700);
-    </style>
-    <style data-premailer="ignore">
-        @media screen and (max-width: 600px) {
-            u+.body {
-                width: 100vw !important;
-            }
-        }
-
-        a[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
-        }
-    </style>
-    <!--[if mso]>
-      <style type="text/css">
-        body, table, td {
-        	font-family: Arial, Helvetica, sans-serif !important;
-        }
-        
-        img {
-        	-ms-interpolation-mode: bicubic;
-        }
-        
-        .box {
-        	border-color: #eee !important;
-        }
-      </style>
-    <![endif]-->
-
+   
     @include('emails.layouts.styles')
     
 </head>
@@ -93,7 +59,7 @@
                                                
                                                 <tr>
                                                     <td class="px-lg">
-                                                        If you have any questions, feel free to message us at <a href="mailto:pga.educ.assistance@gmail.com" class="text-muted">pga.educ.assistance@gmail.com</a>.
+                                                        If you have any questions, feel free to message us at <a href="mailto:scholar@ea.aurora.gov.ph" class="text-muted">scholar@ea.aurora.gov.ph</a>.
                                                     </td>
                                                 </tr>
                                                 <tr>

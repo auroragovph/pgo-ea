@@ -48,8 +48,8 @@ services:
             - mysql
 networks:
   default:
-    external:
-      name: pgo_ea
+    external: true
+    name: pgo_ea
 volumes:
     sailmysql:
         driver: local

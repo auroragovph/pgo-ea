@@ -20,7 +20,7 @@ Route::group(['prefix' => '/'], function(){
     Route::group(['prefix' => 'apply', 'as' => 'apply.'], function(){
         Route::get('/', [FormController::class, 'index'])->name('form');
         Route::post('/', [FormController::class, 'submit'])->name('submit');
-    
+        Route::get('/form/{uuid}', [FormController::class, 'form'])->name('download');
     });
 
     Route::get('track', TrackingController::class)->name('track');
@@ -54,11 +54,15 @@ Route::group(['middleware' => 'auth:web'], function(){
 
     Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
         Route::get('reds', [DevController::class, 'reds'])->name('reds');
-        Route::get('email', [DevController::class, 'email'])->name('email');
+        
         Route::get('pdf', [DevController::class, 'pdf'])->name('pdf');
         Route::get('school', [DevController::class, 'school'])->name('school');
+        Route::get('app', [DevController::class, 'app'])->name('app');
 
-
+        Route::group(['prefix' => 'email', 'as' => 'email.'], function() {
+            Route::get('/', [DevController::class, 'email'])->name('email');
+            Route::get('disapproved', [DevController::class, 'send_email_to_disapproved'])->name('disapproved');
+        });
     });
     
 });

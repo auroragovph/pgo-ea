@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FormApplicationRequest;
 use App\Models\Applicant;
+use App\Service\PDF;
 use Carbon\Carbon;
 
 class FormController extends Controller
@@ -125,5 +126,12 @@ class FormController extends Controller
             'intended' => $intended,
             'timer'    => 50000,
         ], 200);
+    }
+
+    public function form($uuid)
+    {
+        $applicant = Applicant::where('props->email', $uuid)->firstOrFail();
+        $pdf = new PDF($applicant);
+        return $pdf->send($applicant->tracking_number.".pdf");
     }
 }

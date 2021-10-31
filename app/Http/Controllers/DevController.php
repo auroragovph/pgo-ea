@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Service\PDF;
+use App\Models\Scholar;
 use App\Models\Applicant;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\Application\Approved;
 use mikehaertl\pdftk\Pdf as Pdftk;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\Application\Disapproved;
 
 
 class DevController extends Controller
@@ -25,13 +28,28 @@ class DevController extends Controller
 
     }
 
+    public function app()
+    {
+        $applicant = Applicant::where('props->email', '221e5aeb-c51a-41e0-85d6-dc98e2a0012d')->firstorFail();
+
+        // dd($applicant);
+
+        return view('emails.application.approved', compact('applicant'));
+    }
+
     public function email()
     {
         $applicant = Applicant::with('scholar', 'remarks')->find(2);
-        
-        Mail::to('jp.pagapulan@gmail.com')->queue(new Approved($applicant));
 
-        // return view('emails.application.approved');
+        if(!isset($applicant->props['email'])){
+            $applicant->update([
+                'props->email' => Str::uuid()->toString()
+            ]);
+        }
+        
+        // Mail::to('jp.pagapulan@gmail.com')->send(new Approved($applicant));
+
+        return view('emails.application.disapproved', compact('applicant'));
     }
 
     public function school3()
@@ -79,5 +97,25 @@ class DevController extends Controller
 
 
         echo 'Success';
+    }
+
+    public function send_email_to_approved()
+    {
+        $scholars = Scholar::with('applicant')->where('status', 4)->get();
+
+        foreach($scholars as $scholar){
+            $applicant = $scholar->applicant;
+            Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
+        }
+    }
+
+    public function send_email_to_disapproved()
+    {
+        $scholars = Scholar::with('applicant')->where('status', 3)->get();
+
+        foreach($scholars as $scholar){
+            $applicant = $scholar->applicant;
+            Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
+        }
     }
 }

@@ -6,9 +6,11 @@ use App\Service\PDF;
 use App\Models\Remark;
 use App\Models\Scholar;
 use App\Models\Applicant;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\Application\Approved;
 use App\Http\Resources\Applicant\DT;
+use App\Mail\Application\Disapproved;
 use Illuminate\Support\Facades\Mail;
 
 class ApplicantsController extends Controller
@@ -49,11 +51,18 @@ class ApplicantsController extends Controller
             ]);
         }
 
-
         // sending emails
         switch($request->post('status')){
-            case 4: 
+            case 4: //APPROVED
+                    if(!isset($applicant->props['email'])){
+                        $applicant->update([
+                            'props->email' => Str::uuid()->toString()
+                        ]);
+                    }
                     Mail::to($applicant->personal['email_address'])->queue(new Approved($applicant));
+                break;
+            case 3: //DISAPPROVED
+                Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
                 break;
         }
 

@@ -2,8 +2,8 @@
 
 return [
 
-    'email_address' => 'pga.educ.assistance@gmail.com',
-    'password' => 'governorsoffice',
+    'email_address' => 'scholar@ea.aurora.gov.ph',
+    'password' => 'Scholar1!',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,9 +104,14 @@ return [
     */
 
     'from' => [
-        'address' => 'pga.educ.assistance@gmail.com',
+        'address' => 'scholar@ea.aurora.gov.ph',
         'name' => 'PGA EDUCATIONAL ASSISTANCE',
     ],
+
+    // 'reply_to' => [
+    //     'address' => 'ea@aurora.gov.ph',
+    //     'name' => 'PGA Educational Assistance',
+    // ],
 
     /*
     |--------------------------------------------------------------------------
