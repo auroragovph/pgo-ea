@@ -103,9 +103,19 @@ class DevController extends Controller
     {
         $scholars = Scholar::with('applicant')->where('status', 4)->get();
 
+        $now = now();
+
+
         foreach($scholars as $scholar){
             $applicant = $scholar->applicant;
-            Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
+            
+            if(!isset($applicant->props['email'])){
+                $applicant->update([
+                    'props->email' => Str::uuid()->toString(),
+                    'props->email_send_at' => $now
+                ]);
+            }
+            Mail::to($applicant->personal['email_address'])->queue(new Approved($applicant));
         }
     }
 
@@ -113,8 +123,15 @@ class DevController extends Controller
     {
         $scholars = Scholar::with('applicant')->where('status', 3)->get();
 
+        $now = now();
+
         foreach($scholars as $scholar){
             $applicant = $scholar->applicant;
+
+            $applicant->update([
+                'props->email_send_at' => $now
+            ]);
+
             Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
         }
     }
