@@ -59,10 +59,10 @@ class ApplicantsController extends Controller
                             'props->email' => Str::uuid()->toString()
                         ]);
                     }
-                    Mail::to($applicant->personal['email_address'])->queue(new Approved($applicant));
+                    Mail::to($applicant->personal['email_address'])->send(new Approved($applicant));
                 break;
             case 3: //DISAPPROVED
-                Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
+                Mail::to($applicant->personal['email_address'])->send(new Disapproved($applicant));
                 break;
         }
 
