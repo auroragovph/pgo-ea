@@ -131,6 +131,7 @@ class FormController extends Controller
     public function form($uuid)
     {
         $applicant = Applicant::with('scholar')->where('props->email', $uuid)->firstOrFail();
+
         abort_if($applicant->scholar->status == 3, 404);
 
         $pdf = new PDF($applicant);

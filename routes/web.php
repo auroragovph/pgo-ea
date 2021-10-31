@@ -61,7 +61,8 @@ Route::group(['middleware' => 'auth:web'], function(){
 
         Route::group(['prefix' => 'email', 'as' => 'email.'], function() {
             Route::get('/', [DevController::class, 'email'])->name('email');
-            Route::get('disapproved', [DevController::class, 'send_email_to_disapproved'])->name('disapproved');
+            // Route::get('approved', [DevController::class, 'send_email_to_approved'])->name('approved');
+            // Route::get('disapproved', [DevController::class, 'send_email_to_disapproved'])->name('disapproved');
         });
     });
     

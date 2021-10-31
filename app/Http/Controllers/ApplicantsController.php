@@ -54,16 +54,27 @@ class ApplicantsController extends Controller
         // sending emails
         switch($request->post('status')){
             case 4: //APPROVED
-                    if(!isset($applicant->props['email'])){
-                        $applicant->update([
-                            'props->email' => Str::uuid()->toString()
-                        ]);
-                    }
-                    Mail::to($applicant->personal['email_address'])->send(new Approved($applicant));
+                $class_type = new Approved($applicant);
                 break;
             case 3: //DISAPPROVED
-                Mail::to($applicant->personal['email_address'])->send(new Disapproved($applicant));
+                $class_type = new Disapproved($applicant);
                 break;
+            default: 
+                $class_type = null; 
+                break;
+        }
+
+        // sending email
+        if($class_type !== null){
+
+            if(!isset($applicant->props['email'])){
+                $applicant->update([
+                    'props->email' => Str::uuid()->toString(),
+                    'props->email_send_at' => now()
+                ]);
+            }
+
+            Mail::to($applicant->personal['email_address'])->send($class_type);
         }
 
         $remark = Remark::create([

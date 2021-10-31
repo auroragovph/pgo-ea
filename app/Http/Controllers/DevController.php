@@ -47,9 +47,9 @@ class DevController extends Controller
             ]);
         }
         
-        // Mail::to('jp.pagapulan@gmail.com')->send(new Approved($applicant));
+        Mail::to('jp.pagapulan@gmail.com')->send(new Approved($applicant));
 
-        return view('emails.application.disapproved', compact('applicant'));
+        // return view('emails.application.disapproved', compact('applicant'));
     }
 
     public function school3()
@@ -129,6 +129,7 @@ class DevController extends Controller
             $applicant = $scholar->applicant;
 
             $applicant->update([
+                'props->email' => Str::uuid()->toString(),
                 'props->email_send_at' => $now
             ]);
 

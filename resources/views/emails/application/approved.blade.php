@@ -29,7 +29,11 @@
                             
                             <br>
 
-                            <a href="{{ route('apply.download', $applicant->props['email'] ?? '#') }}" target="_new">
+                            {{-- <a href="{{ route('apply.download', $applicant->props['email'] ?? '#') }}" target="_new">
+                                <img src="https://i.ibb.co/gvBQ2DB/pdf-download-2617-1.png" alt="">
+                            </a> --}}
+
+                            <a href="https://ea.aurora.gov.ph/apply/form/{{ $applicant->props['email'] ?? '#' }}" target="_new">
                                 <img src="https://i.ibb.co/gvBQ2DB/pdf-download-2617-1.png" alt="">
                             </a>
 
@@ -37,7 +41,10 @@
 
                             <p>Not working? Click this link instead: </p>
 
-                            <a href="{{ route('apply.download', $applicant->props['email'] ?? '#') }}">{{ route('apply.download', $applicant->props['email'] ?? null) }}</a>
+                            {{-- <a href="{{ route('apply.download', $applicant->props['email'] ?? '#') }}">{{ route('apply.download', $applicant->props['email'] ?? null) }}</a> --}}
+                            <a href="https://ea.aurora.gov.ph/apply/form/{{ $applicant->props['email'] ?? '#' }}">
+                                https://ea.aurora.gov.ph/apply/form/{{ $applicant->props['email'] ?? '#' }}
+                            </a>
                             
                             <br><br>
                             
@@ -62,7 +69,7 @@
 
                                 <p>
                                     <strong>DINGALAN BENEFICIARIES</strong> <br>
-                                    November 2-17, 2021
+                                    November 2-17, 2021 <br>
                                     8 AM - 5 PM <br>
                                     FTC Dingalan
                                </p>
