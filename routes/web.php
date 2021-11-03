@@ -53,6 +53,10 @@ Route::group(['middleware' => 'auth:web'], function(){
 
 
     Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
+
+        Route::get('excel', [DevController::class, 'excel'])->name('excel');
+
+
         Route::get('reds', [DevController::class, 'reds'])->name('reds');
         
         Route::get('pdf', [DevController::class, 'pdf'])->name('pdf');

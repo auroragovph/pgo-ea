@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\Scholar\ApprovedExport;
 use Carbon\Carbon;
 use App\Service\PDF;
 use App\Models\Scholar;
@@ -11,11 +12,17 @@ use Illuminate\Http\Request;
 use App\Mail\Application\Approved;
 use mikehaertl\pdftk\Pdf as Pdftk;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Mail\Application\Disapproved;
 
 
 class DevController extends Controller
 {
+
+    public function excel()
+    {
+        return Excel::download(new ApprovedExport, 'approved.xlsx');
+    }
 
     public function pdf()
     {
