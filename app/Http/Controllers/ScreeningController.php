@@ -32,7 +32,7 @@ class ScreeningController extends Controller
         $datas   = DT::collection($scholars);
 
         return [
-            'heading' => ['#', 'Name', 'Address', 'School', 'Action'],
+            'heading' => ['#', 'Name', 'Municipality', 'Brgy.', 'School', 'Action'],
             'data'    => $datas,
         ];
 

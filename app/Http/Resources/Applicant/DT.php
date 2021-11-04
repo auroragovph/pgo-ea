@@ -14,10 +14,13 @@ class DT extends JsonResource
      */
     public function toArray($request)
     {
+        $address = explode(' - ', $this->personal['address']['present'] ?? '');
+
         return [
             $this->tracking_number,
             $this->full_name,
-            $this->personal['address']['permanent'],
+            $address[1] ?? '',
+            $address[0] ?? '',
             $this->school['name'],
 
             '<a target="_new" href="'.route('applicant.show', $this->id).'"> Assess</a>'

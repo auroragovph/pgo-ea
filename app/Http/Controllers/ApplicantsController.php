@@ -98,7 +98,7 @@ class ApplicantsController extends Controller
         $datas   = DT::collection($applicants);
 
         return [
-            'heading' => ['#', 'Name', 'Address', 'School', 'Action'],
+            'heading' => ['#', 'Name', 'Municipality','Brgy.', 'School', 'Action'],
             'data'    => $datas,
         ];
 
