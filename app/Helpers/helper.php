@@ -32,8 +32,6 @@ if (!function_exists('tracking_to_id')) {
     }
 }
 
-
-
 if (!function_exists('name')) {
     /**
      * Name Helper
@@ -103,3 +101,16 @@ if (!function_exists('pretty_number')) {
     }
 }
 
+if (!function_exists('sh')) {
+    /**
+     * Echo selected in select option
+     * @param string
+     * @return string
+     */
+    function sh($a, $b, $type = 'selected')
+    {
+        if ($a == $b) {
+            return $type;
+        }
+    }
+}

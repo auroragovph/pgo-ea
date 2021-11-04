@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth:web'], function(){
     Route::group(['prefix' => 'applicants', 'as' => 'applicant.'], function(){
         Route::get('/', [ApplicantsController::class, 'index'])->name('index');
         Route::get('/{id}/show', [ApplicantsController::class, 'show'])->name('show');
+        Route::post('/{id}/show', [ApplicantsController::class, 'update'])->name('update');
         Route::post('/{id}/assess', [ApplicantsController::class, 'assess'])->name('assess');
         Route::get('/{id}/print', [ApplicantsController::class, 'print'])->name('print');
     });

@@ -7,6 +7,12 @@ return [
 
     'sex' => ['Male', 'Female'],
 
+    'learning' => [
+        'own' => ['Owned', 'Borrowed', 'Shared'],
+        'type' => ['Smartphone', 'Computer Desktop', 'Laptop', 'Tablet'],
+        'internet' => ['Wifi', 'Mobile Data', 'No internet connection']
+    ],
+
     'status' => [
         1 => 'For Assessment',
         2 => 'Pending',

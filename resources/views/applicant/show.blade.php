@@ -6,6 +6,10 @@
 
 
 @section('page-action')
+    <a href="?edit=1" class="btn btn-warning">
+       Edit
+    </a>
+
     @if ($applicant->scholar !== null)
         <a href="{{ route('applicant.print', $applicant->id) }}" class="btn btn-primary">
             <x-ui.icon icon="printer" /> Print
