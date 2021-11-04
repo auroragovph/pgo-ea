@@ -12,7 +12,6 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "maatwebsite/excel": "^3.1",
         "mikehaertl/php-pdftk": "^0.10.4"
     },
     "require-dev": {
