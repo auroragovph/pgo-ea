@@ -33,7 +33,7 @@ class ScholarExport implements FromView
                 "name" => $applicant->full_name,
                 "mun" => $address[1],
                 "brgy" => $address[0],
-                "school" => $applicant->school['address'],
+                "school" => $applicant->school['name'],
                 "contact" => $applicant->personal['contact_number']
             ));
 
