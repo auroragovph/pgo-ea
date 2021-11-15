@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
 use App\Models\Scholar;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Resources\Scholar\DT;
+use App\Exports\Applicant\ScholarExport;
 
 class ScreeningController extends Controller
 {
@@ -18,6 +21,10 @@ class ScreeningController extends Controller
     {
         if (request()->ajax()) {
             return response()->json($this->_dt($type));
+        }
+
+        if(request()->get('export') == true){
+            return $this->_export((int)request()->type);
         }
 
         return view('screening.index', [
@@ -36,5 +43,13 @@ class ScreeningController extends Controller
             'data'    => $datas,
         ];
 
+    }
+
+    public function _export($status)
+    {
+        $status_label = config('lists.status')[$status] ?? false;
+        abort_if(!$status_label, 404);
+        $label = Str::of($status_label)->kebab();
+        return Excel::download(new ScholarExport($status), 'scholars-'.$label.'.xlsx');
     }
 }
