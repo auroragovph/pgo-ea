@@ -27,7 +27,7 @@ class Applicant extends Model
 
     public function getFullNameAttribute()
     {
-        return name($this->name);
+        return strtoupper(name($this->name, 'LFMI'));
     }
 
 
