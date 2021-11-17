@@ -15,10 +15,38 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Mail\Application\Disapproved;
 use App\Exports\Scholar\ApprovedExport;
 use App\Exports\Applicant\ScholarExport;
-
+use App\Models\Remark;
 
 class DevController extends Controller
 {
+    public function disapproved()
+    {
+        $applicants = Applicant::doesntHave('scholar')->get();
+
+        $scholars = array();
+        $remarks = array();
+
+        $current_user = auth()->user()->id;
+
+        foreach($applicants as $applicant){
+
+            $scholars[] = array(
+                'applicant_id' => $applicant->id,
+                'status' => 3
+            );
+
+            $remarks[] = array(
+                'applicant_id' => $applicant->id,
+                'remark' => 'Unsuccessful application due to limited slots available. Please check email for more information.',
+                'status' => 3,
+                'user_id' => $current_user
+            );
+
+        }
+
+        Scholar::insert($scholars);
+        Remark::insert($remarks);
+    }
 
     public function excel()
     {
@@ -55,7 +83,7 @@ class DevController extends Controller
                 'props->email' => Str::uuid()->toString()
             ]);
         }
-        
+
         Mail::to('jp.pagapulan@gmail.com')->send(new Approved($applicant));
 
         // return view('emails.application.disapproved', compact('applicant'));
@@ -117,7 +145,7 @@ class DevController extends Controller
 
         foreach($scholars as $scholar){
             $applicant = $scholar->applicant;
-            
+
             if(!isset($applicant->props['email'])){
                 $applicant->update([
                     'props->email' => Str::uuid()->toString(),

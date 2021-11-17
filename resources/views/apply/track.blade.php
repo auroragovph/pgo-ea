@@ -67,9 +67,16 @@
                                             <li>Original Certificate of No Existing Scholarship issued by the <strong>school registrar</strong> or <strong>MSWDO</strong></li>
                                             <li>Photocopy of both parents'/guardian's valid ID</li>
                                         </ul>
-                                
+
                                         <p>Incomplete requirements will not be accepted. For inquiries, please contact 0968-854-7611 or Aurora Province Educational Assistance FB page (www.facebook.com/pga.educ.assistance). Thank you!</p>
                                     </td>
+                                </tr>
+
+                                @elseif($latest_remark->status == 3)
+
+                                <tr>
+                                    <td><strong>Remarks</strong></td>
+                                    <td>{{ $latest_remark->remark }}</td>
                                 </tr>
 
                                 @endif
