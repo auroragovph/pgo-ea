@@ -158,18 +158,10 @@ class DevController extends Controller
 
     public function send_email_to_disapproved()
     {
-        $scholars = Scholar::with('applicant')->where('status', 3)->get();
-
+        $applicants = Applicant::doesntHave('scholar')->get();
         $now = now();
 
-        foreach($scholars as $scholar){
-            $applicant = $scholar->applicant;
-
-            $applicant->update([
-                'props->email' => Str::uuid()->toString(),
-                'props->email_send_at' => $now
-            ]);
-
+        foreach($applicants as $applicant){
             Mail::to($applicant->personal['email_address'])->queue(new Disapproved($applicant));
         }
     }

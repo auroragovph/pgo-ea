@@ -59,6 +59,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <h3 class="text-center">APPROVED APPLICATIONS </h3>
+                                        <p>Several beneficiaries were not able to submit/complete their requirements last November 17, 2021, allowing such limited slots to be available again for the rest of our applicants. Another batch, which you have been included in, has been selected as replacements.</p>
                                         <p>Your application form will be sent via email along with further instructions and submission schedule. In the meantime, please prepare the following documents:</p>
                                         <ul>
                                             <li>Original or certified true copy of enrollment/registration form issued by the <strong>school registrar</strong></li>
@@ -67,6 +68,8 @@
                                             <li>Original Certificate of No Existing Scholarship issued by the <strong>school registrar</strong> or <strong>MSWDO</strong></li>
                                             <li>Photocopy of both parents'/guardian's valid ID</li>
                                         </ul>
+
+                                        <p>Deadline of submission is on November 26, 2021 at PGO-EA, 2nd floor, Provincial Capitol; no late submissions or extensions. Incomplete requirements will not be accepted. </p>
 
                                         <p>Incomplete requirements will not be accepted. For inquiries, please contact 0968-854-7611 or Aurora Province Educational Assistance FB page (www.facebook.com/pga.educ.assistance). Thank you!</p>
                                     </td>

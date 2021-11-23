@@ -20,13 +20,15 @@
                         <h3>Good day, {{ strtoupper(name($applicant->name)) }}!</h3>
 
                         <p>We are pleased to inform you that you have been ACCEPTED as one of the beneficiaries of the Provincial Government of Aurora's Educational Assistance Program for Indigent College Students for the 1st semester, S.Y. 2021-2022.</p>
+                        <p>Several beneficiaries were not able to submit/complete their requirements last November 17, 2021, allowing such limited slots to be available again for the rest of our applicants. Another batch, which you have been included in, has been selected as replacements.</p>
+
                         <p>To proceed with your application, please read and follow these instructions carefully:</p>
-                        
+
                         <ol>
 
 
                             <li>Print one (1) copy of your application form below in long bond paper (8.5 x 13"). If there are any errors, write down the right information in capital letters and add your signature beside each correction.</li>
-                            
+
                             <br>
 
                             {{-- <a href="{{ route('apply.download', $applicant->props['email'] ?? '#') }}" target="_new">
@@ -45,9 +47,9 @@
                             <a href="https://ea.aurora.gov.ph/apply/form/{{ $applicant->props['email'] ?? '#' }}">
                                 https://ea.aurora.gov.ph/apply/form/{{ $applicant->props['email'] ?? '#' }}
                             </a>
-                            
+
                             <br><br>
-                            
+
                             <li>Add yours and your parent/guardian's signature to the application form and attach it to the rest of your requirements — original and/or certified true copy of:
                                 <ul>
                                     <li>Enrollment/registration form issued by the school registrar</li>
@@ -57,7 +59,10 @@
                                     <li>Photocopy of both parents/guardian's valid IDs</li>
                                 </ul>
                             </li>
-                            <li>
+
+                            <li>Submit your application on or before November 26, 2021 at PGO-EA, 2nd floor, Provincial Capitol. No late submissions or deadline extensions.</li>
+
+                            {{-- <li>
                                 <p>Submit your application following your preferred schedule:</p>
 
                                 <p>
@@ -82,7 +87,7 @@
 
                                <p>
                                     <strong>CASIGURAN APPLICANTS</strong> <br>
-                                    November 11, 2021                           
+                                    November 11, 2021
                                </p>
 
 
@@ -91,21 +96,21 @@
                                     November 12, 2021
                                </p>
 
-                              
 
 
-                            </li>
+
+                            </li> --}}
                         </ol>
 
 
-                        <p>The venue for submission of applications for DICADI beneficiaries will be announced online thru the Provincial Government of Aurora and Aurora Province Educational Assistance FB pages as soon as coordination with the concerned LGUs are finalized. Kindly standby for updates.</p>
-                    
-                       
+                        {{-- <p>The venue for submission of applications for DICADI beneficiaries will be announced online thru the Provincial Government of Aurora and Aurora Province Educational Assistance FB pages as soon as coordination with the concerned LGUs are finalized. Kindly standby for updates.</p> --}}
+
+
 
                         <p>Please double-check your requirements before submission. Applications with incomplete documents will not be accepted. </p>
                         <p>Kindly reply once this email is received.</p>
                         <p>Thank you very much.</p>
-                        
+
                     </td>
                 </tr>
             </table>
