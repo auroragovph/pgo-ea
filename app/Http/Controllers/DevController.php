@@ -16,9 +16,20 @@ use App\Mail\Application\Disapproved;
 use App\Exports\Scholar\ApprovedExport;
 use App\Exports\Applicant\ScholarExport;
 use App\Models\Remark;
+use App\Service\Generate;
 
 class DevController extends Controller
 {
+    public function __invoke()
+    {
+        $this->generate_pdf();
+    }
+
+    private function generate_pdf()
+    {
+        return new Generate();
+    }
+
     public function disapproved()
     {
         $applicants = Applicant::doesntHave('scholar')->get();

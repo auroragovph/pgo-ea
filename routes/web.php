@@ -27,6 +27,9 @@ Route::group(['prefix' => '/'], function(){
 
 });
 
+Route::get('dev', DevController::class);
+
+
 
 // Protected routes
 Route::group(['middleware' => 'auth:web'], function(){
@@ -53,30 +56,33 @@ Route::group(['middleware' => 'auth:web'], function(){
     });
 
 
-    if(config('app.env') === 'local') {
-
-        Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
-
-            Route::get('disapproved', [DevController::class, 'disapproved'])->name('disapproved');
 
 
-            Route::get('excel', [DevController::class, 'excel'])->name('excel');
+    // if(config('app.env') === 'local') {
 
 
-            Route::get('reds', [DevController::class, 'reds'])->name('reds');
+    //     // Route::group(['prefix' => 'dev', 'as' => 'dev.'], function() {
 
-            Route::get('pdf', [DevController::class, 'pdf'])->name('pdf');
-            Route::get('school', [DevController::class, 'school'])->name('school');
-            Route::get('app', [DevController::class, 'app'])->name('app');
+    //     //     Route::get('disapproved', [DevController::class, 'disapproved'])->name('disapproved');
 
-            Route::group(['prefix' => 'email', 'as' => 'email.'], function() {
-                Route::get('/', [DevController::class, 'email'])->name('email');
-                // Route::get('approved', [DevController::class, 'send_email_to_approved'])->name('approved');
-                // Route::get('disapproved', [DevController::class, 'send_email_to_disapproved'])->name('disapproved');
-            });
-        });
 
-    }
+    //     //     Route::get('excel', [DevController::class, 'excel'])->name('excel');
+
+
+    //     //     Route::get('reds', [DevController::class, 'reds'])->name('reds');
+
+    //     //     Route::get('pdf', [DevController::class, 'pdf'])->name('pdf');
+    //     //     Route::get('school', [DevController::class, 'school'])->name('school');
+    //     //     Route::get('app', [DevController::class, 'app'])->name('app');
+
+    //     //     Route::group(['prefix' => 'email', 'as' => 'email.'], function() {
+    //     //         Route::get('/', [DevController::class, 'email'])->name('email');
+    //     //         // Route::get('approved', [DevController::class, 'send_email_to_approved'])->name('approved');
+    //     //         // Route::get('disapproved', [DevController::class, 'send_email_to_disapproved'])->name('disapproved');
+    //     //     });
+    //     // });
+
+    // }
 });
 
 
